@@ -1,0 +1,12 @@
+<ngb-accordion activeIds="app" closeOthers="true" type="default">
+  <ngb-panel id="app" title="Applicant">
+    <template ngbPanelContent>
+      <borrower [isCoApp]="false" [pfmFileId]="pfmFileId" (changeEvent)="appChangeListener($event)"></borrower>
+    </template>
+  </ngb-panel>
+  <ngb-panel id="cap" title="Co-Applicant">
+    <template ngbPanelContent>
+      <borrower [isCoApp]="true" [pfmFileId]="pfmFileId" (changeEvent)="capChangeListener($event)"></borrower>
+    </template>
+  </ngb-panel>
+</ngb-accordion>

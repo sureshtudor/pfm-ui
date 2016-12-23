@@ -1,0 +1,70 @@
+<div class="form-horizontal well">
+  <form [formGroup]="form" (ngSubmit)="save(form.value)">
+    <table class="table">
+      <tr>
+        <td>
+          Firstname
+          <input type="text" class="form-control" formControlName="firstName">
+        </td>
+        <td>
+          Lastname
+          <input type="text" class="form-control" formControlName="lastName">
+        </td>
+        <td>
+          Middlename
+          <input type="text" class="form-control" formControlName="middleName">
+        </td>
+        <td>
+          SSN
+          <input type="number" class="form-control" formControlName="ssn">
+        </td>
+        <td>
+          Phone
+          <input type="number" class="form-control" formControlName="phone">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          DOB
+          <input type="text" class="form-control" formControlName="dob">
+        </td>
+        <td>
+          Age
+          <input type="number" class="form-control" formControlName="age">
+        </td>
+        <td>
+          Dep
+          <input type="number" class="form-control" formControlName="dependents">
+        </td>
+        <td>
+          Gender
+          <select formControlName="gender" class="form-control">
+            <option *ngFor="let item of genders" [value]="item.value">
+              {{item.name}}
+            </option>
+          </select>
+        </td>
+        <td>
+          Marital
+          <select class="form-control" formControlName="marital">
+            <option *ngFor="let item of maritalStatuses" [value]="item.value">
+              {{item.name}}
+            </option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <!-- Segment goes here.. -->
+    <div>
+      <segment [model]="segment" [hideChargeable]="false" [hideRemark]="true"
+               (changeEvent)="onSegmentChange($event)"></segment>
+    </div>
+    <input formControlName="id" type="hidden">
+    <input formControlName="pfmFileId" type="hidden">
+    <input formControlName="isCoApp" type="hidden">
+    <!-- Validations.. -->
+    <button [disabled]="form.pristine || !form.valid" type="submit" class="btn btn-primary">
+      Save
+    </button>
+  </form>
+</div>

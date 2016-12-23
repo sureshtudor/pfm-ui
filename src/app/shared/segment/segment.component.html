@@ -1,0 +1,45 @@
+<div class="container" [formGroup]="form" (change)="onValueChanged($event)">
+  <label class="btn btn-primary">Overridden
+    <input type="checkbox" class="badgebox" formControlName="overridden" [(ngModel)]="model.overridden">
+    <span class="badge">&#x2713;</span>
+  </label>
+  <label class="btn btn-primary">Modified
+    <input type="checkbox" class="badgebox" formControlName="modified" [(ngModel)]="model.modified">
+    <span class="badge">&#x2713;</span>
+  </label>
+  <label class="btn btn-primary">Supplement
+    <input type="checkbox" class="badgebox" formControlName="supplement" [(ngModel)]="model.supplement">
+    <span class="badge">&#x2713;</span>
+  </label>
+  <label class="btn btn-primary">Verified
+    <input type="checkbox" class="badgebox" formControlName="verified" [(ngModel)]="model.verified">
+    <span class="badge">&#x2713;</span>
+  </label>
+  <label class="btn btn-primary">Deleted
+    <input type="checkbox" class="badgebox" formControlName="deleted" [(ngModel)]="model.deleted">
+    <span class="badge">&#x2713;</span>
+  </label>
+  <label class="btn btn-primary">Printable
+    <input type="checkbox" class="badgebox" formControlName="printable" [(ngModel)]="model.printable">
+    <span class="badge">&#x2713;</span>
+  </label>
+  <span [hidden]="hideChargeable">
+        <label class="btn btn-primary">Chargeable
+            <input type="checkbox" class="badgebox" formControlName="chargeable" [(ngModel)]="model.chargeable">
+            <span class="badge">&#x2713;</span>
+        </label>
+    </span>
+  <div class="col-md-3">
+    <select class="form-control" formControlName="status" [(ngModel)]="model.status">
+      <option *ngFor="let item of statusTypes" [value]="item.value">
+        {{item.name}}
+      </option>
+    </select>
+  </div>
+  <div [hidden]="hideRemark">
+    <label>Remark:</label>
+    <textarea class="form-control" formControlName="remark" [(ngModel)]="model.remark">
+            {{form.controls.remark}}
+        </textarea>
+  </div>
+</div>

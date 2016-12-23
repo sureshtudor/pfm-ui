@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-primary">
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link clickable" routerLink="">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link clickable" routerLink="trades">Trades</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link clickable" routerLink="users">Users</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link clickable" routerLink="posts">Posts</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link clickable fa fa-folder-open" [hidden]="!isAuthenticated" (click)="openSearchModal()">
+        {{selectedPfmFileId}}</a>
+    </li>
+    <!-- float right-->
+    <li class="nav-item float-xs-right">
+      <a class="nav-link clickable" routerLink="login" (click)="loginOrOut()">
+        {{isAuthenticated ? 'Logout' : 'Login'}}</a>
+    </li>
+    <li class="nav-item float-xs-right">
+      <span class="navbar-text float-xs-right">{{authenticatedUser}}</span>
+    </li>
+  </ul>
+</nav>
