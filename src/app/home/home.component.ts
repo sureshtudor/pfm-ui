@@ -9,7 +9,7 @@ export class HomeComponent implements OnInit {
   pfmFileId: string;
   
   constructor(private searchService: SearchService) {
-    console.log('test');
+    console.log('test1');
   }
   
   ngOnInit() {
